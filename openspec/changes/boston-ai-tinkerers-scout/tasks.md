@@ -1,0 +1,3 @@
+- [ ] Build the event scout UI and data model
+- [ ] Add AI-powered session-fit and meetup planning
+- [ ] Verify locally, deploy, and prepare Sundai publishing

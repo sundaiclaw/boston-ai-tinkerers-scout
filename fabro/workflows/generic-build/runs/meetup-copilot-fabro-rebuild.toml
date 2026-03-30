@@ -1,0 +1,7 @@
+version = 1
+graph = "../workflow.fabro"
+
+[vars]
+app_dir = "."
+spec_dir = "openspec"
+workflow_dir = ".workflow"

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boston AI Tinkerers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header id="hero" class="hero-panel section-card">
+        <div class="hero-copy">
+          <p class="eyebrow">Boston builder meetup copilot</p>
+          <h1 id="hero-title">Boston AI Tinkerers</h1>
+          <p id="hero-subtitle" class="hero-subtitle">Loading tonight's meetup...</p>
+          <div id="hero-meta" class="pill-row"></div>
+          <p id="community-note" class="community-note"></p>
+          <div id="hero-stats" class="stats-grid"></div>
+          <div class="hero-utility">
+            <div class="utility-card">
+              <p class="callout-label">Meetup utility</p>
+              <p id="meetup-goal" class="utility-copy">
+                Helping you find the right people, the right demos, and one useful next step before the night ends.
+              </p>
+            </div>
+            <nav class="jump-nav" aria-label="Jump to the meetup sections">
+              <a class="jump-link" href="#schedule-section">See the flow</a>
+              <a class="jump-link" href="#attendees-section">Meet builders</a>
+              <a class="jump-link" href="#matcher-section">Open matcher</a>
+              <a class="jump-link" href="#ideas-section">Generate ideas</a>
+            </nav>
+          </div>
+        </div>
+        <div class="hero-callout">
+          <p class="callout-label">Tonight's question</p>
+          <h2>Who should you meet before the room splinters into side quests?</h2>
+          <p>
+            Use the AI meetup matcher to get an instant path through demos, intros, and local follow-up ideas.
+          </p>
+        </div>
+      </header>
+
+      <main class="main-layout">
+        <section class="primary-column">
+          <section id="schedule-section" class="section-card">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Meetup discovery</p>
+                <h2>Tonight's flow</h2>
+              </div>
+              <span id="session-count" class="pill">0 sessions</span>
+            </div>
+            <div id="schedule" class="stack-grid"></div>
+          </section>
+
+          <section id="highlights-section" class="section-card">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Live demos</p>
+                <h2>Session highlights</h2>
+              </div>
+            </div>
+            <div id="highlights" class="mini-grid"></div>
+          </section>
+
+          <section id="attendees-section" class="section-card">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Attendee context</p>
+                <h2>Meet the builders</h2>
+              </div>
+              <span id="attendee-count" class="pill">0 attendees</span>
+            </div>
+            <div id="attendees" class="profile-grid"></div>
+          </section>
+
+          <section id="city-section" class="section-card city-context-card">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Boston context</p>
+                <h2 id="city-headline">Built in Boston</h2>
+              </div>
+            </div>
+            <p id="city-summary" class="support-copy"></p>
+            <div id="city-neighborhoods" class="pill-row"></div>
+            <p id="city-transit" class="support-copy small"></p>
+            <div class="two-up">
+              <div>
+                <h3>Meetup norms</h3>
+                <ul id="norms" class="bullet-list"></ul>
+              </div>
+              <div>
+                <h3>Conversation starters</h3>
+                <ul id="collaboration-prompts" class="bullet-list"></ul>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <aside class="secondary-column">
+          <section id="matcher-section" class="section-card ai-card">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">AI guidance</p>
+                <h2>AI meetup matcher</h2>
+              </div>
+              <span id="match-source" class="pill">Ready</span>
+            </div>
+            <form id="match-form" class="control-stack">
+              <label for="goal-input">What do you want out of tonight?</label>
+              <textarea
+                id="goal-input"
+                rows="4"
+                placeholder="Meet people building practical AI tools for real Boston users"
+              ></textarea>
+              <button type="submit">Find my best path</button>
+            </form>
+            <p class="support-copy helper-copy">
+              Best results come from naming a collaborator, workflow bottleneck, or demo table you want to chase down before the room splinters.
+            </p>
+            <div id="goal-suggestions" class="suggestion-row" aria-label="Suggested matcher prompts"></div>
+            <div id="match-status" class="status-text" aria-live="polite">
+              Tell the copilot what kind of collaborator, conversation, or session you want to find.
+            </div>
+            <div id="match-result" class="result-stack" aria-live="polite"></div>
+          </section>
+
+          <section id="ideas-section" class="section-card ai-card">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Idea generation</p>
+                <h2>AI build ideas</h2>
+              </div>
+              <span id="ideas-source" class="pill">Ready</span>
+            </div>
+            <form id="ideas-form" class="control-stack">
+              <label for="theme-input">What theme should the room build around?</label>
+              <input id="theme-input" type="text" placeholder="Meetup demos that can turn into real products" />
+              <button type="submit">Generate build prompts</button>
+            </form>
+            <p class="support-copy helper-copy">
+              Ask for something concrete enough that a post-meetup sprint team could sketch the stack on the Red Line home.
+            </p>
+            <div id="theme-suggestions" class="suggestion-row" aria-label="Suggested build themes"></div>
+            <div id="ideas-status" class="status-text" aria-live="polite">
+              Generate multiple meetup-relevant ideas with concrete implementation angles.
+            </div>
+            <div id="ideas-result" class="result-stack" aria-live="polite"></div>
+          </section>
+
+          <section class="section-card">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Prompt shortcuts</p>
+                <h2>Try one of these asks</h2>
+              </div>
+            </div>
+            <div id="prompt-list" class="prompt-list"></div>
+          </section>
+        </aside>
+      </main>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>
